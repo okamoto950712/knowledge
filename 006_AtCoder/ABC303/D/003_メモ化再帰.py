@@ -18,25 +18,25 @@ def f(i, isCapsLockOn):
         return 0
     if S[i] == "a":  # aを入力する場合
         if isCapsLockOn:  # CapsLockがONの状態
-            # CapsLock+aを押す
+            # CapsLockとaを押す
             cost1 = f(i + 1, False) + Z + X
             # Shift+aを押す
             cost2 = f(i + 1, True) + Y
         else:  # CapsLockがOFFの状態
             # aを押す
             cost1 = f(i + 1, False) + X
-            # CapsLock+Shift+aを押す
+            # CapsLockとShift+aを押す
             cost2 = f(i + 1, True) + Z + Y
     else:  # Aを入力する場合
         if isCapsLockOn:  # CapsLockがONの状態
-            # CapsLock+Shift+aを押す
+            # CapsLockとShift+aを押す
             cost1 = f(i + 1, False) + Z + Y
             # aを押す
             cost2 = f(i + 1, True) + X
         else:  # CapsLockがOFFの状態
             # shift+aを押す
             cost1 = f(i + 1, False) + Y
-            # CapsLock+aを押す
+            # CapsLockとaを押す
             cost2 = f(i + 1, True) + Z + X
     return min(cost1, cost2)
 
